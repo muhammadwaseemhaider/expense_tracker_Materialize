@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 
 import { TransactionContext } from '../TransactionState'
 import {numberWithCommas} from '../utils/format';
+import { Typography } from '@material-ui/core';
 
 export const AccountSummary = () => {
 
@@ -21,11 +22,15 @@ export const AccountSummary = () => {
   return (
     <div className="inc-exp-container">
         <div>
-            <h4>Income </h4>
+          <Typography variant="h6" display="flex" gutterBottom>
+          Income
+          </Typography>
             <p className="money plus">${numberWithCommas(income)}</p>
         </div>
-        <div>
-            <h4>Expense </h4>
+        <div> 
+          <Typography variant="h6" display="flex" gutterBottom>
+            Expense
+          </Typography>
             <p className="money minus">${numberWithCommas(expense)}</p>
         </div>
     </div>

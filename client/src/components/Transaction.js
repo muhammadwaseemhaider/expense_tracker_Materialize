@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import { TransactionContext } from '../TransactionState';
 import {numberWithCommas} from '../utils/format';
+import { ListItem, ListItemText } from '@material-ui/core'
 
 export const Transaction = ({transaction}) => {
 
@@ -10,13 +11,14 @@ export const Transaction = ({transaction}) => {
   const transactionType= transaction.transactionAmount > 0 ? 'plus' : 'minus';
 
   return (
-    <li className={transactionType}>
-    {transaction.description}
+    <ListItem className={transactionType}>
+    <ListItemText> {transaction.description}
   <span>{sign}${numberWithCommas(Math.abs(transaction.transactionAmount))}</span>
     <button className="delete-btn"
             onClick={()=> delTransaction(transaction._id)}
     >X
     </button>
-    </li>
+    </ListItemText>
+    </ListItem>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { TransactionContext } from '../TransactionState';
 import {numberWithCommas} from '../utils/format';
+import { Typography } from '@material-ui/core';
 
 export const Balance = () => {
 
@@ -10,8 +11,12 @@ export const Balance = () => {
 
   return (
     <div>
-        <h4>Current Balance</h4>
-  <h1>${numberWithCommas(balance)}</h1>
+    <Typography variant="h6" gutterBottom>
+        Current Balance
+    </Typography>
+    <Typography variant="h5" gutterBottom>
+         ${numberWithCommas(balance)}
+    </Typography>  
     </div>
   );
 }

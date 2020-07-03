@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { TransactionContext } from '../TransactionState';
+import { Button, TextField } from '@material-ui/core';
 
 export const AddTransaction = () => {
 
@@ -25,30 +26,32 @@ return (
     <h3>Add Transaction</h3>
     <form onSubmit={onSubmit} >
         <div className="form-control">
-            <label htmlFor="description">
-                Description
-            </label>
-            <input  type="text"
-                    id="description"
-                    placeholder="Detail of Transaction"
+
+            <TextField  type="text"
+                    label="Description"
+                    placeholder="Detail of transaction"
+                    variant="outlined"
+                    fullWidth
+                    margin="normal"
                     value={description}
                     onChange={(e)=> setDescription(e.target.value)}>
-            </input>
+            </TextField>
         </div>
         <div className="form-control">
-            <label htmlFor="transactionamount">
-                Transaction Amount
-            </label>
-            <input  type="text"
-                    id="transactionamount"
+            <TextField  type="text"
+                    label="Transaction amount"
                     placeholder="Enter transaction amount"
+                    color="primary"
+                    variant="outlined"
+                    fullWidth
+                    margin="normal"
                     value={transactionAmount}
                     onChange={(e)=> setTransactionAmount(e.target.value)}>
-            </input>
+            </TextField>
         </div>
-        <button className="btn" >
+        <Button fullWidth variant="contained" color="primary" >
             Add Transaction
-        </button>            
+        </Button>            
     </form>
 </div>
 );
